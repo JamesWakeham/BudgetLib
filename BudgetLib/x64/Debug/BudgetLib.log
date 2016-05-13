@@ -1,0 +1,3 @@
+﻿  MathFuncs.cpp
+l:\c++\budgetlib\budgetlib\mathfuncs.cpp(420): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  BudgetLib.vcxproj -> L:\C++\BudgetLib\x64\Debug\BudgetLib.lib
