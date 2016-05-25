@@ -19,6 +19,9 @@ namespace MathFuncs
 		Vector2 operator+ (const Vector2);
 		Vector2 operator- (const Vector2);
 		Vector2 operator* (const float f);
+		operator float* ();
+	private: 
+		float * values;
 	};
 
 	class Vector3
@@ -39,6 +42,9 @@ namespace MathFuncs
 		Vector3 operator+ (const Vector3);
 		Vector3 operator- (const Vector3);
 		Vector3 operator* (const float f);
+		operator float* ();
+	private:
+		float * values;
 	};
 
 	class Vector4
@@ -60,6 +66,9 @@ namespace MathFuncs
 		Vector4 operator+ (const Vector4);
 		Vector4 operator- (const Vector4);
 		Vector4 operator* (const float f);
+		operator float* ();
+	private:
+		float * values;
 	};
 
 	class Matrix2
@@ -69,7 +78,9 @@ namespace MathFuncs
 		~Matrix2();
 		Matrix2(const float _x, const float _y, const float _z, const float _w);
 		float value[2][2];
+		Matrix2 SetRotateZ(float theta);
 		Matrix2 operator* (const Matrix2);
+		operator float* ();
 	private:
 
 	};
@@ -80,8 +91,12 @@ namespace MathFuncs
 		Matrix3();
 		~Matrix3();
 		Matrix3(const float a, const float b, const float c, const float d, const float e, const float f, const float g, const float h, const float i);
-		float value[3][3]; 
+		float value[3][3];
+		Matrix3 SetRotateX(float theta);
+		Matrix3 SetRotateY(float theta);
+		Matrix3 SetRotateZ(float theta);
 		Matrix3 operator* (const Matrix3);
+		operator float* ();
 	private:
 
 	};
@@ -96,14 +111,19 @@ namespace MathFuncs
 				const float i, const float j, const float k, const float l, 
 				const float m, const float n, const float o, const float p);
 		float value[4][4];
+		Matrix4 SetRotateX(float theta);
+		Matrix4 SetRotateY(float theta);
+		Matrix4 SetRotateZ(float theta);
 		Matrix4 operator* (const Matrix4);
+		operator float* ();
 	private:
-
 	};
 
+#pragma region AgnosticFuncs
 	Vector2 operator* (float, Vector2);
 	Vector3 operator* (float, Vector3);
 	Vector4 operator* (float, Vector4);
 	float Mag(const Vector4);
 	Vector4 Norm(const Vector4);
+#pragma endregion
 }

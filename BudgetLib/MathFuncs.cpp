@@ -2,26 +2,30 @@
 
 namespace MathFuncs
 {
+#pragma region Vector2
 	Vector2::Vector2()
 	{
-		x = 0;
-		y = 0;
+		float temp[2] = { x,y };
+		values = temp;
 	}
 	Vector2::~Vector2()
 	{
-
+		float temp[2] = { x,y };
+		values = temp;
 	}
 
 	Vector2::Vector2(const float _x, const float _y)
 	{
 		x = _x;
 		y = _y;
+		Vector2();
 	}
 
 	Vector2::Vector2(const float _x)
 	{
 		x = _x;
 		y = 0;
+		Vector2();
 	}
 
 	float Vector2::Dot(Vector2 rhs)
@@ -64,28 +68,47 @@ namespace MathFuncs
 		return temp;
 	}
 
+	Vector2::operator float*()
+	{
+		values[0] = x;
+		values[1] = y;
+		return values;
+	}
+	
+	Vector2 operator*(float lhs, Vector2 rhs)
+	{
+		Vector2 temp;
+		temp.x = rhs.x * lhs;
+		temp.y = rhs.y * lhs;
+		return temp;
+	}
+#pragma endregion
+
+#pragma region Vector3
 	Vector3::Vector3()
 	{
-		x = 0;
-		y = 0;
-		z = 0;
+		float temp[3] = { x,y,z };
+		values = temp;
 	}	
 	Vector3::Vector3(const float _x, const float _y, const float _z)
 	{
 		x = _x;
 		y = _y;
 		z = _z;
+		Vector3();
 	}
 
 	Vector3::Vector3(const float _x, const float _y)
 	{
 		x = _x;
 		y = _y;
+		Vector3();
 	}
 
 	Vector3::Vector3(const float _x)
 	{
 		x = _x;
+		Vector3();
 	}
 	float Vector3::Dot(Vector3 rhs)
 	{
@@ -128,16 +151,33 @@ namespace MathFuncs
 		temp.z = z * f;
 		return temp;
 	}
+	Vector3::operator float*()
+	{
+		values[0] = x;
+		values[1] = y;
+		values[2] = z;
+		return values;
+	}
 	Vector3::~Vector3()
 	{
 
 	}
+
+	Vector3 operator*(float lhs, Vector3 rhs)
+	{
+		Vector3 temp;
+		temp.x = rhs.x * lhs;
+		temp.y = rhs.y * lhs;
+		temp.z = rhs.z * lhs;
+		return temp;
+	}
+#pragma endregion 
+
+#pragma region Vector4
 	Vector4::Vector4()
 	{
-		x = 0;
-		y = 0;
-		z = 0;
-		w = 0;
+		float temp[4] = { x,y,z,w };
+		values = temp;
 	}
 	Vector4::~Vector4()
 	{
@@ -150,6 +190,7 @@ namespace MathFuncs
 		y = _y;
 		z = _z;
 		w = _w;
+		Vector4();
 	}
 
 	Vector4::Vector4(const float _x, const float _y, const float _z)
@@ -158,6 +199,7 @@ namespace MathFuncs
 		y = _y;
 		z = _z;
 		w = 0;
+		Vector4();
 	}
 
 	Vector4::Vector4(const float _x, const float _y)
@@ -166,6 +208,7 @@ namespace MathFuncs
 		y = _y;
 		z = 0;
 		w = 0;
+		Vector4();
 	}
 
 	Vector4::Vector4(const float _x)
@@ -174,6 +217,7 @@ namespace MathFuncs
 		y = 0;
 		z = 0;
 		w = 0;
+		Vector4();
 	}
 
 	float Vector4::Dot(Vector4 rhs)
@@ -227,6 +271,27 @@ namespace MathFuncs
 		return temp;
 	}
 
+	Vector4::operator float*()
+	{
+		values[0] = x;
+		values[1] = y;
+		values[2] = z;
+		values[3] = w;
+		return values;
+	}
+
+	Vector4 operator*(float lhs, Vector4 rhs)
+	{
+		Vector4 temp;
+		temp.x = rhs.x * lhs;
+		temp.y = rhs.y * lhs;
+		temp.z = rhs.z * lhs;
+		temp.w = rhs.w * lhs;
+		return temp;
+	}
+#pragma endregion
+
+#pragma region Matrix2
 	Matrix2::Matrix2()
 	{
 		value[0][0] = 0;
@@ -246,6 +311,11 @@ namespace MathFuncs
 
 		value[0][1] = _z;
 		value[1][1] = _w;
+	}
+
+	Matrix2 Matrix2::SetRotateZ(float theta)
+	{
+		return Matrix2(cos(theta),-sin(theta),sin(theta),cos(theta));
 	}
 
 	Matrix2 Matrix2::operator*(const Matrix2 rhs)
@@ -270,6 +340,93 @@ namespace MathFuncs
 		return ans;
 	}
 
+	Matrix2::operator float*()
+	{
+		return (float*)value;
+	}
+
+#pragma endregion
+
+#pragma region Matrix3
+	Matrix3::Matrix3()
+	{
+		value[0][0] = 0;
+		value[1][0] = 0;
+		value[2][0] = 0;
+
+		value[0][1] = 0;
+		value[1][1] = 0;
+		value[2][1] = 0;
+
+		value[0][2] = 0;
+		value[1][2] = 0;
+		value[2][2] = 0;
+	}
+
+	Matrix3::~Matrix3()
+	{
+	}
+
+	Matrix3::Matrix3(const float a, const float b, const float c, const float d, const float e, const float f, const float g, const float h, const float i)
+	{
+		value[0][0] = a;
+		value[1][0] = b;
+		value[2][0] = c;
+
+		value[0][1] = d;
+		value[1][1] = e;
+		value[2][1] = f;
+
+		value[0][2] = g;
+		value[1][2] = h;
+		value[2][2] = i;
+	}
+
+	Matrix3 Matrix3::SetRotateX(float theta)
+	{
+		return Matrix3( 1,0,0,
+						0,cos(theta),-sin(theta),
+						0,sin(theta),cos(theta));
+	}
+
+	Matrix3 Matrix3::SetRotateY(float theta)
+	{
+		return Matrix3( cos(theta) ,0,sin(theta),
+						0		   ,1,0,
+						-sin(theta),0,cos(theta));
+	}
+
+	Matrix3 Matrix3::SetRotateZ(float theta)
+	{
+		return Matrix3( cos(theta), -sin(theta),0, 
+						sin(theta), -cos(theta),0,
+						0		  ,0           ,1);
+	}
+
+	Matrix3 Matrix3::operator*(const Matrix3 rhs)
+	{
+		Matrix3 ans = Matrix3();
+		for (int i = 0; i < 3; ++i)
+		{
+			for (int j = 0; j < 3; ++j)
+			{
+				for (int k = 0; k < 3; ++k)
+				{
+					ans.value[i][j] += value[i][k] * rhs.value[k][j];
+				}
+			}
+		}
+		return ans;
+	}
+
+	Matrix3::operator float*()
+	{
+		return (float*)value;
+	}
+
+#pragma endregion
+
+#pragma region Matrix4
 	Matrix4::Matrix4()
 	{
 		value[0][0] = 0;
@@ -323,6 +480,33 @@ namespace MathFuncs
 		value[3][3] = p;
 	}
 
+	Matrix4 Matrix4::SetRotateX(float theta)
+	{
+		return Matrix4(
+			1, 0, 0, 0,
+			0, cos(theta), -sin(theta), 0,
+			0, sin(theta), cos(theta), 0,
+			0, 0, 0, 1);
+	}
+
+	Matrix4 Matrix4::SetRotateY(float theta)
+	{
+		return Matrix4(
+			cos(theta), 0, sin(theta), 0,
+			0, 1, 0, 0,
+			-sin(theta), 0, cos(theta), 0,
+			0, 0, 0, 1);
+	}
+
+	Matrix4 Matrix4::SetRotateZ(float theta)
+	{
+		return Matrix4( 
+			cos(theta), -sin(theta), 0, 0,
+			sin(theta), -cos(theta), 0, 0,
+			0		  , 0          , 1, 0,
+			0		  , 0		   , 0, 1);
+	}
+
 	Matrix4 Matrix4::operator*(const Matrix4 rhs)
 	{
 		Matrix4 ans = Matrix4();
@@ -338,83 +522,13 @@ namespace MathFuncs
 		}
 		return ans;
 	}
-
-	Matrix3::Matrix3()
+	Matrix4::operator float*()
 	{
-		value[0][0] = 0;
-		value[1][0] = 0;
-		value[2][0] = 0;
-
-		value[0][1] = 0;
-		value[1][1] = 0;
-		value[2][1] = 0;
-
-		value[0][2] = 0;
-		value[1][2] = 0;
-		value[2][2] = 0;
+		return (float*)value;
 	}
+#pragma endregion
 
-	Matrix3::~Matrix3()
-	{
-	}
-
-	Matrix3::Matrix3(const float a, const float b, const float c, const float d, const float e, const float f, const float g, const float h, const float i)
-	{
-		value[0][0] = a;
-		value[1][0] = b;
-		value[2][0] = c;
-
-		value[0][1] = d;
-		value[1][1] = e;
-		value[2][1] = f;
-
-		value[0][2] = g;
-		value[1][2] = h;
-		value[2][2] = i;
-	}
-
-	Matrix3 Matrix3::operator*(const Matrix3 rhs)
-	{
-		Matrix3 ans = Matrix3();
-		for (int i = 0; i < 3; ++i)
-		{
-			for (int j = 0; j < 3; ++j)
-			{
-				for (int k = 0; k < 3; ++k)
-				{
-					ans.value[i][j] += value[i][k] * rhs.value[k][j];
-				}
-			}
-		}
-		return ans;
-	}
-
-	Vector2 operator*(float lhs, Vector2 rhs)
-	{
-		Vector2 temp;
-		temp.x = rhs.x * lhs;
-		temp.y = rhs.y * lhs;
-		return temp;
-	}
-
-	Vector3 operator*(float lhs, Vector3 rhs)
-	{
-		Vector3 temp;
-		temp.x = rhs.x * lhs;
-		temp.y = rhs.y * lhs;
-		temp.z = rhs.z * lhs;
-		return temp;
-	}
-
-	Vector4 operator*(float lhs, Vector4 rhs)
-	{
-		Vector4 temp;
-		temp.x = rhs.x * lhs;
-		temp.y = rhs.y * lhs;
-		temp.z = rhs.z * lhs;
-		temp.w = rhs.w * lhs;
-		return temp;
-	}
+#pragma region AgnosticFuncs
 	float Mag(const Vector4 vec)
 	{
 		return sqrt((vec.x*vec.x) + (vec.y*vec.y) + (vec.z*vec.z) + (vec.w*vec.w));
@@ -425,4 +539,5 @@ namespace MathFuncs
 		float mag = temp.Magnitude();
 		return Vector4(temp.x / mag, temp.y / mag, temp.z / mag, temp.w / mag);
 	}
+#pragma endregion
 }
