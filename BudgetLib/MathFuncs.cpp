@@ -5,27 +5,40 @@ namespace MathFuncs
 #pragma region Vector2
 	Vector2::Vector2()
 	{
-		float temp[2] = { x,y };
-		values = temp;
+		x = 0;
+		y = 0;
+		values[0] = 0;
+		values[1] = 0;
 	}
+
+	Vector2::Vector2(const Vector2 & other)
+	{
+		x = other.x;
+		y = other.y;
+		*values = *other.values;
+	}
+	
 	Vector2::~Vector2()
 	{
-		float temp[2] = { x,y };
-		values = temp;
+		
 	}
 
 	Vector2::Vector2(const float _x, const float _y)
 	{
+		
 		x = _x;
 		y = _y;
-		Vector2();
+		values[0] = 0;
+		values[1] = 0;
 	}
 
 	Vector2::Vector2(const float _x)
 	{
+		
 		x = _x;
 		y = 0;
-		Vector2();
+		values[0] = 0;
+		values[1] = 0;
 	}
 
 	float Vector2::Dot(Vector2 rhs)
@@ -87,28 +100,49 @@ namespace MathFuncs
 #pragma region Vector3
 	Vector3::Vector3()
 	{
-		float temp[3] = { x,y,z };
-		values = temp;
-	}	
+		x = 0;
+		y = 0;
+		z = 0;
+		values[0] = 0;
+		values[1] = 0;
+		values[2] = 0;
+	}
+	Vector3::Vector3(const Vector3 & other)
+	{
+		x = other.x;
+		y = other.y;
+		z = other.z;
+		*values = *other.values;
+	}
 	Vector3::Vector3(const float _x, const float _y, const float _z)
 	{
 		x = _x;
 		y = _y;
 		z = _z;
-		Vector3();
+		values[0] = 0;
+		values[1] = 0;
+		values[2] = 0;
 	}
 
 	Vector3::Vector3(const float _x, const float _y)
 	{
 		x = _x;
 		y = _y;
-		Vector3();
+		z = 0;
+		values[0] = 0;
+		values[1] = 0;
+		values[2] = 0;
 	}
 
 	Vector3::Vector3(const float _x)
 	{
 		x = _x;
-		Vector3();
+		x = _x;
+		y = 0;
+		z = 0;
+		values[0] = 0;
+		values[1] = 0;
+		values[2] = 0;
 	}
 	float Vector3::Dot(Vector3 rhs)
 	{
@@ -176,8 +210,22 @@ namespace MathFuncs
 #pragma region Vector4
 	Vector4::Vector4()
 	{
-		float temp[4] = { x,y,z,w };
-		values = temp;
+		x = 0;
+		y = 0;
+		z = 0;
+		w = 0;
+		values[0] = 0;
+		values[1] = 0;
+		values[2] = 0;
+		values[3] = 0;
+	}
+	Vector4::Vector4(const Vector4 & other)
+	{
+		x = other.x;
+		y = other.y;
+		z = other.z;
+		w = other.w;
+		*values = *other.values;
 	}
 	Vector4::~Vector4()
 	{
@@ -190,7 +238,10 @@ namespace MathFuncs
 		y = _y;
 		z = _z;
 		w = _w;
-		Vector4();
+		values[0] = 0;
+		values[1] = 0;
+		values[2] = 0;
+		values[3] = 0;
 	}
 
 	Vector4::Vector4(const float _x, const float _y, const float _z)
@@ -199,7 +250,10 @@ namespace MathFuncs
 		y = _y;
 		z = _z;
 		w = 0;
-		Vector4();
+		values[0] = 0;
+		values[1] = 0;
+		values[2] = 0;
+		values[3] = 0;
 	}
 
 	Vector4::Vector4(const float _x, const float _y)
@@ -208,7 +262,10 @@ namespace MathFuncs
 		y = _y;
 		z = 0;
 		w = 0;
-		Vector4();
+		values[0] = 0;
+		values[1] = 0;
+		values[2] = 0;
+		values[3] = 0;
 	}
 
 	Vector4::Vector4(const float _x)
@@ -217,7 +274,10 @@ namespace MathFuncs
 		y = 0;
 		z = 0;
 		w = 0;
-		Vector4();
+		values[0] = 0;
+		values[1] = 0;
+		values[2] = 0;
+		values[3] = 0;
 	}
 
 	float Vector4::Dot(Vector4 rhs)
@@ -289,6 +349,13 @@ namespace MathFuncs
 		temp.w = rhs.w * lhs;
 		return temp;
 	}
+	Vector2 operator*(const Matrix2 lhs, const Vector2 rhs)
+	{
+		Vector2 ans;
+		ans.x = (rhs.x*lhs.value[0][0]) + (rhs.y * lhs.value[1][0]);
+		ans.y = (rhs.x * lhs.value[0][1]) + (rhs.y * lhs.value[1][1]);
+		return ans;
+	}
 #pragma endregion
 
 #pragma region Matrix2
@@ -298,6 +365,14 @@ namespace MathFuncs
 		value[1][0] = 0;
 		value[0][1] = 0;
 		value[1][1] = 0;
+	}
+
+	Matrix2::Matrix2(const Matrix2 & other)
+	{
+		value[0][0] = other.value[0][0];
+		value[1][0] = other.value[1][0];
+		value[0][1] = other.value[0][1];
+		value[1][1] = other.value[1][1];
 	}
 
 	Matrix2::~Matrix2()
@@ -361,6 +436,21 @@ namespace MathFuncs
 		value[0][2] = 0;
 		value[1][2] = 0;
 		value[2][2] = 0;
+	}
+
+	Matrix3::Matrix3(const Matrix3 & other)
+	{
+		value[0][0] = other.value[0][0];
+		value[1][0] = other.value[1][0];
+		value[2][0] = other.value[2][0];
+
+		value[0][1] = other.value[0][1];
+		value[1][1] = other.value[1][1];
+		value[2][1] = other.value[2][1];
+
+		value[0][2] = other.value[0][2];
+		value[1][2] = other.value[1][2];
+		value[2][2] = other.value[2][2];
 	}
 
 	Matrix3::~Matrix3()
@@ -448,6 +538,29 @@ namespace MathFuncs
 		value[1][3] = 0;
 		value[2][3] = 0;
 		value[3][3] = 0;
+	}
+
+	Matrix4::Matrix4(const Matrix4 & other)
+	{
+		value[0][0] = other.value[0][0];
+		value[1][0] = other.value[1][0];
+		value[2][0] = other.value[2][0];
+		value[3][0] = other.value[3][0];
+
+		value[0][1] = other.value[0][1];
+		value[1][1] = other.value[1][1];
+		value[2][1] = other.value[2][1];
+		value[3][1] = other.value[3][1];
+
+		value[0][2] = other.value[0][2];
+		value[1][2] = other.value[1][2];
+		value[2][2] = other.value[2][2];
+		value[3][2] = other.value[3][2];
+
+		value[0][3] = other.value[0][3];
+		value[1][3] = other.value[1][3];
+		value[2][3] = other.value[2][3];
+		value[3][3] = other.value[3][3];
 	}
 
 	Matrix4::~Matrix4()

@@ -1,0 +1,28 @@
+﻿  main.cpp
+l:\gits\budgetlib\budgetlib\mathfuncs.h(11): error C2652: 'MathFuncs::Vector2': illegal copy constructor: first parameter must not be a 'MathFuncs::Vector2'
+  l:\gits\budgetlib\budgetlib\mathfuncs.h(8): note: see declaration of 'MathFuncs::Vector2'
+  Generating Code...
+  Compiling...
+  unittest.cpp
+l:\gits\budgetlib\budgetlib\mathfuncs.h(11): error C2652: 'MathFuncs::Vector2': illegal copy constructor: first parameter must not be a 'MathFuncs::Vector2'
+  l:\gits\budgetlib\budgetlib\mathfuncs.h(8): note: see declaration of 'MathFuncs::Vector2'
+c:\users\james.wakeham\downloads\math unit test\unittest.cpp(135): error C2679: binary '+': no operator found which takes a right-hand operand of type 'MathFuncs::Vector2' (or there is no acceptable conversion)
+  l:\gits\budgetlib\budgetlib\mathfuncs.h(21): note: could be 'MathFuncs::Vector2 MathFuncs::Vector2::operator +(const MathFuncs::Vector2)'
+  c:\users\james.wakeham\downloads\math unit test\unittest.cpp(135): note: while trying to match the argument list '(MathFuncs::Vector2, MathFuncs::Vector2)'
+c:\users\james.wakeham\downloads\math unit test\unittest.cpp(147): warning C4244: 'argument': conversion from '__int64' to 'const float', possible loss of data
+c:\users\james.wakeham\downloads\math unit test\unittest.cpp(171): error C2679: binary '*': no operator found which takes a right-hand operand of type 'MathFuncs::Vector2' (or there is no acceptable conversion)
+  l:\gits\budgetlib\budgetlib\mathfuncs.h(127): note: could be 'MathFuncs::Vector2 MathFuncs::operator *(const MathFuncs::Matrix2,const MathFuncs::Vector2)'
+  l:\gits\budgetlib\budgetlib\mathfuncs.h(126): note: or       'MathFuncs::Vector4 MathFuncs::operator *(float,MathFuncs::Vector4)'
+  l:\gits\budgetlib\budgetlib\mathfuncs.h(125): note: or       'MathFuncs::Vector3 MathFuncs::operator *(float,MathFuncs::Vector3)'
+  l:\gits\budgetlib\budgetlib\mathfuncs.h(124): note: or       'MathFuncs::Vector2 MathFuncs::operator *(float,MathFuncs::Vector2)'
+  c:\users\james.wakeham\downloads\math unit test\unittest.cpp(171): note: while trying to match the argument list '(float, MathFuncs::Vector2)'
+c:\users\james.wakeham\downloads\math unit test\unittest.cpp(183): error C2664: 'float MathFuncs::Vector2::Dot(MathFuncs::Vector2)': cannot convert argument 1 from 'MathFuncs::Vector2' to 'MathFuncs::Vector2'
+  c:\users\james.wakeham\downloads\math unit test\unittest.cpp(183): note: Cannot copy construct class 'MathFuncs::Vector2' due to ambiguous copy constructors or no available copy constructor
+c:\users\james.wakeham\downloads\math unit test\unittest.cpp(248): error C2678: binary '*': no operator found which takes a left-hand operand of type 'MathFuncs::Matrix2' (or there is no acceptable conversion)
+  l:\gits\budgetlib\budgetlib\mathfuncs.h(83): note: could be 'MathFuncs::Matrix2 MathFuncs::Matrix2::operator *(const MathFuncs::Matrix2)'
+  l:\gits\budgetlib\budgetlib\mathfuncs.h(127): note: or       'MathFuncs::Vector2 MathFuncs::operator *(const MathFuncs::Matrix2,const MathFuncs::Vector2)'
+  l:\gits\budgetlib\budgetlib\mathfuncs.h(126): note: or       'MathFuncs::Vector4 MathFuncs::operator *(float,MathFuncs::Vector4)'
+  l:\gits\budgetlib\budgetlib\mathfuncs.h(125): note: or       'MathFuncs::Vector3 MathFuncs::operator *(float,MathFuncs::Vector3)'
+  l:\gits\budgetlib\budgetlib\mathfuncs.h(124): note: or       'MathFuncs::Vector2 MathFuncs::operator *(float,MathFuncs::Vector2)'
+  c:\users\james.wakeham\downloads\math unit test\unittest.cpp(248): note: while trying to match the argument list '(MathFuncs::Matrix2, MathFuncs::Vector2)'
+  Generating Code...

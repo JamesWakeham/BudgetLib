@@ -1,10 +1,10 @@
 ﻿  MathFuncs.cpp
-l:\gits\budgetlib\budgetlib\mathfuncs.cpp(318): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
-l:\gits\budgetlib\budgetlib\mathfuncs.cpp(389): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
-l:\gits\budgetlib\budgetlib\mathfuncs.cpp(396): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
-l:\gits\budgetlib\budgetlib\mathfuncs.cpp(403): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
-l:\gits\budgetlib\budgetlib\mathfuncs.cpp(489): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
-l:\gits\budgetlib\budgetlib\mathfuncs.cpp(498): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
-l:\gits\budgetlib\budgetlib\mathfuncs.cpp(507): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
-l:\gits\budgetlib\budgetlib\mathfuncs.cpp(534): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+l:\gits\budgetlib\budgetlib\mathfuncs.cpp(393): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+l:\gits\budgetlib\budgetlib\mathfuncs.cpp(479): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+l:\gits\budgetlib\budgetlib\mathfuncs.cpp(486): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+l:\gits\budgetlib\budgetlib\mathfuncs.cpp(493): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+l:\gits\budgetlib\budgetlib\mathfuncs.cpp(602): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+l:\gits\budgetlib\budgetlib\mathfuncs.cpp(611): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+l:\gits\budgetlib\budgetlib\mathfuncs.cpp(620): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+l:\gits\budgetlib\budgetlib\mathfuncs.cpp(647): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
   BudgetLib.vcxproj -> L:\Gits\BudgetLib\x64\Debug\BudgetLib.lib

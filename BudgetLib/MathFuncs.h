@@ -3,10 +3,12 @@
 
 namespace MathFuncs
 {
+	class Matrix2;
 	class Vector2
 	{
 	public:
 		Vector2();
+		Vector2(const Vector2 &other);
 		~Vector2();
 		Vector2(const float _x, const float _y);
 		Vector2(const float _x);
@@ -20,14 +22,14 @@ namespace MathFuncs
 		Vector2 operator- (const Vector2);
 		Vector2 operator* (const float f);
 		operator float* ();
-	private: 
-		float * values;
+		float values[2];
 	};
 
 	class Vector3
 	{
 	public:
 		Vector3();
+		Vector3(const Vector3 &other);
 		~Vector3();		
 		Vector3(const float _x, const float _y, const float _z);
 		Vector3(const float _x, const float _y);
@@ -43,14 +45,14 @@ namespace MathFuncs
 		Vector3 operator- (const Vector3);
 		Vector3 operator* (const float f);
 		operator float* ();
-	private:
-		float * values;
+		float values[3];
 	};
 
 	class Vector4
 	{
 	public:
 		Vector4();
+		Vector4(const Vector4 &other);
 		~Vector4();
 		Vector4(const float _x, const float _y, const float _z, const float _w);
 		Vector4(const float _x, const float _y, const float _z);
@@ -67,14 +69,14 @@ namespace MathFuncs
 		Vector4 operator- (const Vector4);
 		Vector4 operator* (const float f);
 		operator float* ();
-	private:
-		float * values;
+		float values[4];
 	};
 
 	class Matrix2
 	{
 	public:
 		Matrix2();
+		Matrix2(const Matrix2 &other);
 		~Matrix2();
 		Matrix2(const float _x, const float _y, const float _z, const float _w);
 		float value[2][2];
@@ -89,6 +91,7 @@ namespace MathFuncs
 	{
 	public:
 		Matrix3();
+		Matrix3(const Matrix3 &other);
 		~Matrix3();
 		Matrix3(const float a, const float b, const float c, const float d, const float e, const float f, const float g, const float h, const float i);
 		float value[3][3];
@@ -105,6 +108,7 @@ namespace MathFuncs
 	{
 	public:
 		Matrix4();
+		Matrix4(const Matrix4 &other);
 		~Matrix4();
 		Matrix4(const float a, const float b, const float c, const float d,
 				const float e, const float f, const float g, const float h, 
@@ -123,6 +127,7 @@ namespace MathFuncs
 	Vector2 operator* (float, Vector2);
 	Vector3 operator* (float, Vector3);
 	Vector4 operator* (float, Vector4);
+	Vector2 operator* (const Matrix2 lhs, const Vector2 rhs);
 	float Mag(const Vector4);
 	Vector4 Norm(const Vector4);
 #pragma endregion
