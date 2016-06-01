@@ -1,1 +1,10 @@
-﻿  BudgetLib.vcxproj -> c:\users\james.wakeham\documents\visual studio 2015\Projects\MathLibTesting\Debug\BudgetLib.lib
+﻿  MathFuncs.cpp
+l:\gits\budgetlib\budgetlib\mathfuncs.cpp(393): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+l:\gits\budgetlib\budgetlib\mathfuncs.cpp(479): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+l:\gits\budgetlib\budgetlib\mathfuncs.cpp(486): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+l:\gits\budgetlib\budgetlib\mathfuncs.cpp(493): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+l:\gits\budgetlib\budgetlib\mathfuncs.cpp(602): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+l:\gits\budgetlib\budgetlib\mathfuncs.cpp(611): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+l:\gits\budgetlib\budgetlib\mathfuncs.cpp(620): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+l:\gits\budgetlib\budgetlib\mathfuncs.cpp(647): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  BudgetLib.vcxproj -> L:\Gits\BudgetLib\Debug\BudgetLib.lib
